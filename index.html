@@ -214,7 +214,7 @@
             transform: translateY(-2px);
         }
 
-        /* Turmas Section with Parallax */
+        /* Turmas Section */
         .turmas-section {
             padding: 100px 2rem;
             background: var(--light);
@@ -240,25 +240,11 @@
             background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.05"><path fill="%234caF87" d="M50 10L70 40H30z"/></svg>');
         }
 
-        .section-title {
-            text-align: center;
-            font-size: 2.2rem;
-            font-weight: 600;
-            color: var(--primary);
-            margin-bottom: 3rem;
-            position: relative;
-            z-index: 2;
-        }
-
-        body.dark-mode .section-title {
-            color: var(--light);
-        }
-
         .turmas-grid {
-            max-width: 1200px;
+            max-width: 1000px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(4, 1fr);
             gap: 2rem;
             position: relative;
             z-index: 2;
@@ -267,13 +253,18 @@
         .turma-card {
             background: white;
             border-radius: 12px;
-            padding: 2.5rem 2rem;
+            padding: 3rem 1.5rem;
             text-align: center;
             box-shadow: 0 5px 20px rgba(0,0,0,0.08);
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
             border: 1px solid rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 200px;
         }
 
         body.dark-mode .turma-card {
@@ -297,36 +288,29 @@
         }
 
         .turma-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
             display: block;
         }
 
         .turma-title {
-            font-size: 1.3rem;
-            font-weight: 500;
-            margin-bottom: 1rem;
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--card-color);
         }
 
         body.dark-mode .turma-title {
             color: var(--light);
-     
         }
 
         .turma-link {
-            display: inline-block;
-            padding: 0.7rem 1.5rem;
-            background: var(--card-color);
-            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             text-decoration: none;
-            border-radius: 6px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            font-size: 0.9rem;
-        }
-
-        .turma-link:hover {
-            transform: scale(1.05);
+            color: inherit;
+            width: 100%;
+            height: 100%;
         }
 
         /* Cores das turmas */
@@ -378,7 +362,6 @@
             color: white;
             padding: 3rem 2rem 2rem;
             text-align: center;
-        
         }
 
         .footer p {
@@ -387,16 +370,46 @@
         }
 
         /* Responsive */
+        @media (max-width: 1024px) {
+            .turmas-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+        }
+
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.2rem; }
             .hero p { font-size: 1.1rem; }
-            .turmas-grid { grid-template-columns: 1fr; }
-            .section-title { font-size: 1.8rem; }
+            .turmas-grid { 
+                grid-template-columns: 1fr;
+                max-width: 400px;
+            }
             .nav-container { padding: 0 1rem; }
             
             .video-container iframe {
                 width: 100vw;
                 height: 100vh;
+            }
+
+            .turma-card {
+                padding: 2.5rem 1rem;
+                min-height: 180px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .turma-card {
+                padding: 2rem 1rem;
+                min-height: 160px;
+            }
+            
+            .turma-icon {
+                font-size: 2.5rem;
+                margin-bottom: 1rem;
+            }
+            
+            .turma-title {
+                font-size: 1.2rem;
             }
         }
 
@@ -451,35 +464,30 @@
     <!-- Turmas Section -->
     <section class="turmas-section" id="turmas">
         <div class="parallax-bg"></div>
-        <h2 class="section-title page-transition">Nossas Turmas</h2>
         <div class="turmas-grid">
             <!-- 6º Ano -->
-            <div class="turma-card turma-6 page-transition">
+            <a href="6-ano.html" class="turma-card turma-6 page-transition turma-link">
                 <span class="turma-icon">🗺️</span>
                 <h3 class="turma-title">6º Ano</h3>
-                <a href="6-ano.html" class="turma-link">Acessar Materiais</a>
-            </div>
+            </a>
 
             <!-- 7º Ano -->
-            <div class="turma-card turma-7 page-transition">
+            <a href="7-ano.html" class="turma-card turma-7 page-transition turma-link">
                 <span class="turma-icon">🌍</span>
                 <h3 class="turma-title">7º Ano</h3>
-                <a href="7-ano.html" class="turma-link">Acessar Materiais</a>
-            </div>
+            </a>
 
             <!-- 8º Ano -->
-            <div class="turma-card turma-8 page-transition">
+            <a href="8-ano.html" class="turma-card turma-8 page-transition turma-link">
                 <span class="turma-icon">🌋</span>
                 <h3 class="turma-title">8º Ano</h3>
-                <a href="8-ano.html" class="turma-link">Acessar Materiais</a>
-            </div>
+            </a>
 
             <!-- 9º Ano -->
-            <div class="turma-card turma-9 page-transition">
+            <a href="9-ano.html" class="turma-card turma-9 page-transition turma-link">
                 <span class="turma-icon">🏙️</span>
                 <h3 class="turma-title">9º Ano</h3>
-                <a href="9-ano.html" class="turma-link">Acessar Materiais</a>
-            </div>
+            </a>
         </div>
     </section>
 
@@ -506,7 +514,6 @@
 
     <!-- Footer -->
     <footer class="footer">
-        </div>
         <p>&copy; 2024 Professor Leonardo - Geografia. Espaço educativo.</p>
     </footer>
 
