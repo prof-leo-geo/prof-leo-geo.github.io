@@ -93,14 +93,14 @@
         .nav-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 0 1rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .logo {
-            font-size: 1.3rem;
+            font-size: 1.1rem;
             font-weight: 600;
             color: var(--primary);
             text-decoration: none;
@@ -113,7 +113,7 @@
         .nav-controls {
             display: flex;
             align-items: center;
-            gap: 1.5rem;
+            gap: 1rem;
         }
 
         .theme-toggle {
@@ -121,8 +121,9 @@
             border: none;
             color: var(--text);
             cursor: pointer;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             transition: color 0.3s ease;
+            padding: 0.5rem;
         }
 
         body.dark-mode .theme-toggle {
@@ -137,7 +138,7 @@
         .header-turma {
             background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
             color: white;
-            padding: 120px 0 80px;
+            padding: 100px 1rem 60px;
             position: relative;
             overflow: hidden;
         }
@@ -156,14 +157,13 @@
         .header-content {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 2rem;
             text-align: center;
             position: relative;
             z-index: 2;
         }
 
         .breadcrumb {
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
         }
 
         .breadcrumb a {
@@ -174,7 +174,7 @@
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
         }
 
         .breadcrumb a:hover {
@@ -182,105 +182,175 @@
         }
 
         .header-content h1 {
-            font-size: 3rem;
+            font-size: 2.2rem;
             font-weight: 600;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
         }
 
         .header-content p {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             opacity: 0.9;
             font-weight: 300;
             max-width: 600px;
             margin: 0 auto;
         }
 
-        /* Layout Principal */
-        .main-layout {
-            display: grid;
-            grid-template-columns: 280px 1fr;
-            gap: 0;
-            min-height: 80vh;
+        /* Bimestres */
+        .bimestres-section {
+            background: var(--light);
+            padding: 2rem 1rem;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode .bimestres-section {
+            background: var(--bg-dark);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .bimestres-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 2rem;
         }
 
-        /* Sidebar de Abas */
-        .sidebar {
-            background: var(--light);
-            padding: 40px 0;
-            border-right: 2px solid rgba(0,0,0,0.05);
-            height: 100%;
-            position: sticky;
-            top: 80px;
-        }
-
-        body.dark-mode .sidebar {
-            background: var(--bg-dark);
-            border-right: 2px solid rgba(255,255,255,0.1);
-        }
-
-        .abas-menu {
-            list-style: none;
-        }
-
-        .aba-item {
-            margin-bottom: 0.5rem;
-        }
-
-        .aba-link {
-            display: flex;
-            align-items: center;
-            padding: 1rem 1.5rem;
-            color: var(--text);
-            text-decoration: none;
-            transition: all 0.3s ease;
-            border-left: 4px solid transparent;
-            font-weight: 500;
-            cursor: pointer;
-        }
-
-        body.dark-mode .aba-link {
-            color: var(--light);
-        }
-
-        .aba-link:hover {
-            background: rgba(26, 60, 52, 0.05);
-            border-left-color: var(--primary);
-        }
-
-        .aba-link.ativa {
-            background: rgba(26, 60, 52, 0.1);
-            border-left-color: var(--primary);
+        .bimestres-title {
+            font-size: 1.3rem;
+            font-weight: 600;
             color: var(--primary);
-        }
-
-        body.dark-mode .aba-link.ativa {
-            background: rgba(76, 175, 135, 0.1);
-            color: var(--accent);
-            border-left-color: var(--accent);
-        }
-
-        .aba-icone {
-            font-size: 1.1rem;
-            margin-right: 12px;
-            width: 20px;
+            margin-bottom: 1.5rem;
             text-align: center;
         }
 
-        /* Conteúdo Principal */
-        .conteudo-principal {
-            padding: 40px;
-            background: var(--light);
+        body.dark-mode .bimestres-title {
+            color: var(--light);
         }
 
-        body.dark-mode .conteudo-principal {
-            background: var(--bg-dark);
+        .bimestres-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .bimestre-card {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            cursor: pointer;
+        }
+
+        body.dark-mode .bimestre-card {
+            background: var(--card-dark);
+        }
+
+        .bimestre-card:hover, .bimestre-card.ativo {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            border-color: var(--accent);
+        }
+
+        .bimestre-card.ativo {
+            background: rgba(76, 175, 135, 0.1);
+        }
+
+        .bimestre-icon {
+            font-size: 2rem;
+            margin-bottom: 0.8rem;
+            display: block;
+        }
+
+        .bimestre-titulo {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        body.dark-mode .bimestre-titulo {
+            color: var(--light);
+        }
+
+        .bimestre-periodo {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        body.dark-mode .bimestre-periodo {
+            color: #a0aec0;
+        }
+
+        /* Layout Principal Mobile First */
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        /* Abas Mobile */
+        .abas-container {
+            background: var(--light);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            margin-bottom: 2rem;
+        }
+
+        body.dark-mode .abas-container {
+            background: var(--card-dark);
+        }
+
+        .abas-header {
+            display: flex;
+            overflow-x: auto;
+            background: white;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .abas-header::-webkit-scrollbar {
+            display: none;
+        }
+
+        body.dark-mode .abas-header {
+            background: var(--dark);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .aba-mobile {
+            padding: 1rem 1.5rem;
+            background: none;
+            border: none;
+            color: var(--text-light);
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            border-bottom: 3px solid transparent;
+            flex-shrink: 0;
+        }
+
+        body.dark-mode .aba-mobile {
+            color: #a0aec0;
+        }
+
+        .aba-mobile.ativa {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+        }
+
+        body.dark-mode .aba-mobile.ativa {
+            color: var(--accent);
+            border-bottom-color: var(--accent);
         }
 
         .aba-conteudo {
             display: none;
+            padding: 2rem;
             animation: fadeIn 0.5s ease;
         }
 
@@ -289,31 +359,29 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
+            from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
         .aba-titulo {
-            font-size: 2rem;
+            font-size: 1.5rem;
             font-weight: 600;
             color: var(--primary);
-            margin-bottom: 2rem;
-            padding-bottom: 1rem;
-            border-bottom: 2px solid rgba(0,0,0,0.1);
+            margin-bottom: 1.5rem;
+            text-align: center;
         }
 
         body.dark-mode .aba-titulo {
             color: var(--light);
-            border-bottom: 2px solid rgba(255,255,255,0.1);
         }
 
         /* Área de Conteúdo */
         .area-conteudo {
             background: white;
-            border-radius: 12px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
             border-left: 4px solid var(--primary);
         }
 
@@ -323,20 +391,17 @@
         }
 
         .area-titulo {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-weight: 600;
             color: var(--primary);
             margin-bottom: 1rem;
             display: flex;
             align-items: center;
+            gap: 0.5rem;
         }
 
         body.dark-mode .area-titulo {
             color: var(--accent);
-        }
-
-        .area-titulo i {
-            margin-right: 10px;
         }
 
         .area-descricao {
@@ -352,16 +417,16 @@
         /* Cards de Conteúdo */
         .cards-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
             margin-top: 1.5rem;
         }
 
         .card {
             background: var(--light);
-            border-radius: 10px;
-            padding: 1.5rem;
-            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+            border-radius: 8px;
+            padding: 1.2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.06);
             transition: all 0.3s ease;
             border: 1px solid rgba(0,0,0,0.05);
         }
@@ -372,15 +437,15 @@
         }
 
         .card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.12);
         }
 
         .card-titulo {
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 600;
             color: var(--primary);
-            margin-bottom: 0.8rem;
+            margin-bottom: 0.5rem;
         }
 
         body.dark-mode .card-titulo {
@@ -389,7 +454,7 @@
 
         .card-descricao {
             color: var(--text-light);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             margin-bottom: 1rem;
             line-height: 1.5;
         }
@@ -402,7 +467,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             color: var(--text-light);
             margin-top: 1rem;
             padding-top: 1rem;
@@ -420,7 +485,7 @@
             width: 100%;
             height: 0;
             padding-bottom: 56.25%;
-            margin: 1.5rem 0;
+            margin: 1rem 0;
             border-radius: 8px;
             overflow: hidden;
         }
@@ -466,6 +531,7 @@
             font-size: 1.2rem;
             margin-right: 1rem;
             color: var(--primary);
+            flex-shrink: 0;
         }
 
         body.dark-mode .material-icone {
@@ -479,10 +545,11 @@
         .material-titulo {
             font-weight: 500;
             margin-bottom: 0.2rem;
+            font-size: 0.95rem;
         }
 
         .material-descricao {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: var(--text-light);
         }
 
@@ -490,77 +557,81 @@
             color: #a0aec0;
         }
 
+        /* Mensagem do Bimestre */
+        .bimestre-mensagem {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(76, 175, 135, 0.1);
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            border: 1px solid var(--accent);
+        }
+
+        .bimestre-mensagem h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        body.dark-mode .bimestre-mensagem h3 {
+            color: var(--accent);
+        }
+
         /* Footer */
         .footer {
             background: var(--dark);
             color: white;
-            padding: 3rem 2rem 2rem;
+            padding: 2rem 1rem;
             text-align: center;
-            margin-top: 4rem;
+            margin-top: 3rem;
         }
 
         .footer p {
             opacity: 0.7;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
 
-        /* Responsive */
-        @media (max-width: 968px) {
-            .main-layout {
-                grid-template-columns: 1fr;
+        /* Desktop Styles */
+        @media (min-width: 768px) {
+            .nav-container {
+                padding: 0 2rem;
             }
             
-            .sidebar {
-                position: static;
-                border-right: none;
-                border-bottom: 2px solid rgba(0,0,0,0.05);
-                padding: 20px 0;
+            .logo {
+                font-size: 1.3rem;
             }
             
-            .abas-menu {
-                display: flex;
-                overflow-x: auto;
-                padding: 0 1rem;
+            .header-turma {
+                padding: 120px 2rem 80px;
             }
             
-            .aba-item {
-                margin-bottom: 0;
-                margin-right: 0.5rem;
-                flex-shrink: 0;
-            }
-            
-            .aba-link {
-                padding: 0.8rem 1rem;
-                border-left: none;
-                border-bottom: 3px solid transparent;
-                white-space: nowrap;
-            }
-            
-            .aba-link.ativa {
-                border-left: none;
-                border-bottom: 3px solid var(--primary);
-            }
-            
-            .conteudo-principal {
-                padding: 20px;
-            }
-        }
-
-        @media (max-width: 768px) {
             .header-content h1 {
-                font-size: 2.2rem;
+                font-size: 3rem;
             }
             
-            .header-content p {
-                font-size: 1.1rem;
+            .bimestres-section {
+                padding: 3rem 2rem;
             }
             
-            .cards-grid {
-                grid-template-columns: 1fr;
+            .main-content {
+                padding: 3rem 2rem;
+            }
+            
+            .abas-header {
+                justify-content: center;
+            }
+            
+            .aba-mobile {
+                padding: 1.2rem 2rem;
             }
             
             .aba-titulo {
-                font-size: 1.6rem;
+                font-size: 2rem;
+                text-align: left;
+            }
+            
+            .cards-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 1.5rem;
             }
         }
 
@@ -609,95 +680,70 @@
         </div>
     </header>
 
-    <!-- Layout Principal -->
-    <div class="main-layout">
-        <!-- Sidebar com Abas -->
-        <nav class="sidebar">
-            <ul class="abas-menu">
-                <li class="aba-item">
-                    <a class="aba-link ativa" data-aba="videos">
-                        <span class="aba-icone"><i class="fas fa-play-circle"></i></span>
-                        Vídeos
-                    </a>
-                </li>
-                <li class="aba-item">
-                    <a class="aba-link" data-aba="aulas">
-                        <span class="aba-icone"><i class="fas fa-book-open"></i></span>
-                        Aulas
-                    </a>
-                </li>
-                <li class="aba-item">
-                    <a class="aba-link" data-aba="textos">
-                        <span class="aba-icone"><i class="fas fa-file-alt"></i></span>
-                        Textos
-                    </a>
-                </li>
-                <li class="aba-item">
-                    <a class="aba-link" data-aba="atividades">
-                        <span class="aba-icone"><i class="fas fa-tasks"></i></span>
-                        Atividades
-                    </a>
-                </li>
-                <li class="aba-item">
-                    <a class="aba-link" data-aba="recursos">
-                        <span class="aba-icone"><i class="fas fa-globe-americas"></i></span>
-                        Recursos
-                    </a>
-                </li>
-            </ul>
-        </nav>
-
-        <!-- Conteúdo Principal -->
-        <main class="conteudo-principal">
-            <!-- Aba Vídeos -->
-            <section id="videos" class="aba-conteudo ativa">
-                <h2 class="aba-titulo">
-                    <i class="fas fa-play-circle"></i>
-                    Vídeos Educativos
-                </h2>
-                
-                <div class="area-conteudo page-transition">
-                    <h3 class="area-titulo">
-                        <i class="fas fa-video"></i>
-                        Conteúdo em Vídeo
-                    </h3>
-                    <p class="area-descricao">
-                        Seleção de vídeos para complementar o aprendizado sobre introdução à Geografia.
-                    </p>
-                    
-                    <div class="video-container">
-                        <iframe 
-                            src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-                    
-                    <div class="cards-grid">
-                        <div class="card">
-                            <h4 class="card-titulo">O que é Geografia?</h4>
-                            <p class="card-descricao">Vídeo introdutório sobre os conceitos básicos da Geografia.</p>
-                            <div class="card-meta">
-                                <span>12:30 min</span>
-                                <span><i class="far fa-eye"></i> Assistir</span>
-                            </div>
-                        </div>
-                        
-                        <div class="card">
-                            <h4 class="card-titulo">Representações do Espaço</h4>
-                            <p class="card-descricao">Mapas, plantas e diferentes formas de representação geográfica.</p>
-                            <div class="card-meta">
-                                <span>18:45 min</span>
-                                <span><i class="far fa-eye"></i> Assistir</span>
-                            </div>
-                        </div>
-                    </div>
+    <!-- Seção de Bimestres -->
+    <section class="bimestres-section">
+        <div class="bimestres-container">
+            <h2 class="bimestres-title">Selecione o Bimestre</h2>
+            <div class="bimestres-grid">
+                <div class="bimestre-card ativo" data-bimestre="1">
+                    <span class="bimestre-icon">❶</span>
+                    <h3 class="bimestre-titulo">1º Bimestre</h3>
+                    <p class="bimestre-periodo">Fev - Abr</p>
                 </div>
-            </section>
+                <div class="bimestre-card" data-bimestre="2">
+                    <span class="bimestre-icon">❷</span>
+                    <h3 class="bimestre-titulo">2º Bimestre</h3>
+                    <p class="bimestre-periodo">Mai - Jul</p>
+                </div>
+                <div class="bimestre-card" data-bimestre="3">
+                    <span class="bimestre-icon">❸</span>
+                    <h3 class="bimestre-titulo">3º Bimestre</h3>
+                    <p class="bimestre-periodo">Ago - Out</p>
+                </div>
+                <div class="bimestre-card" data-bimestre="4">
+                    <span class="bimestre-icon">❹</span>
+                    <h3 class="bimestre-titulo">4º Bimestre</h3>
+                    <p class="bimestre-periodo">Nov - Dez</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conteúdo Principal -->
+    <div class="main-content">
+        <!-- Mensagem do Bimestre -->
+        <div class="bimestre-mensagem" id="bimestreMensagem">
+            <h3>1º Bimestre - Introdução à Geografia</h3>
+            <p>Conteúdos sobre os fundamentos da Geografia e representações do espaço</p>
+        </div>
+
+        <!-- Abas Mobile -->
+        <div class="abas-container">
+            <div class="abas-header">
+                <button class="aba-mobile ativa" data-aba="aulas">
+                    <i class="fas fa-book-open"></i>
+                    <span>Aulas</span>
+                </button>
+                <button class="aba-mobile" data-aba="textos">
+                    <i class="fas fa-file-alt"></i>
+                    <span>Textos</span>
+                </button>
+                <button class="aba-mobile" data-aba="atividades">
+                    <i class="fas fa-tasks"></i>
+                    <span>Atividades</span>
+                </button>
+                <button class="aba-mobile" data-aba="videos">
+                    <i class="fas fa-play-circle"></i>
+                    <span>Vídeos</span>
+                </button>
+                <button class="aba-mobile" data-aba="recursos">
+                    <i class="fas fa-globe-americas"></i>
+                    <span>Recursos</span>
+                </button>
+            </div>
 
             <!-- Aba Aulas -->
-            <section id="aulas" class="aba-conteudo">
+            <section id="aulas" class="aba-conteudo ativa">
                 <h2 class="aba-titulo">
                     <i class="fas fa-book-open"></i>
                     Materiais de Aula
@@ -706,7 +752,7 @@
                 <div class="area-conteudo page-transition">
                     <h3 class="area-titulo">
                         <i class="fas fa-chalkboard-teacher"></i>
-                        Conteúdo das Aulas
+                        Conteúdo das Aulas - 1º Bimestre
                     </h3>
                     <p class="area-descricao">
                         Apresentações, resumos e materiais utilizados em sala de aula.
@@ -716,7 +762,7 @@
                         <li class="material-item">
                             <span class="material-icone"><i class="fas fa-file-pdf"></i></span>
                             <div class="material-texto">
-                                <div class="material-titulo">Aula 1 - Introdução à Geografia</div>
+                                <div class="material-titulo">Aula 1 - O que é Geografia?</div>
                                 <div class="material-descricao">PDF - 2.4 MB</div>
                             </div>
                         </li>
@@ -748,7 +794,7 @@
                 <div class="area-conteudo page-transition">
                     <h3 class="area-titulo">
                         <i class="fas fa-book"></i>
-                        Leitura Complementar
+                        Leitura Complementar - 1º Bimestre
                     </h3>
                     <p class="area-descricao">
                         Textos, artigos e materiais de leitura para aprofundamento do conteúdo.
@@ -786,7 +832,7 @@
                 <div class="area-conteudo page-transition">
                     <h3 class="area-titulo">
                         <i class="fas fa-edit"></i>
-                        Exercícios Práticos
+                        Exercícios Práticos - 1º Bimestre
                     </h3>
                     <p class="area-descricao">
                         Atividades, questionários e exercícios para fixação do conteúdo.
@@ -811,6 +857,44 @@
                 </div>
             </section>
 
+            <!-- Aba Vídeos -->
+            <section id="videos" class="aba-conteudo">
+                <h2 class="aba-titulo">
+                    <i class="fas fa-play-circle"></i>
+                    Vídeos Educativos
+                </h2>
+                
+                <div class="area-conteudo page-transition">
+                    <h3 class="area-titulo">
+                        <i class="fas fa-video"></i>
+                        Conteúdo em Vídeo - 1º Bimestre
+                    </h3>
+                    <p class="area-descricao">
+                        Seleção de vídeos para complementar o aprendizado sobre introdução à Geografia.
+                    </p>
+                    
+                    <div class="video-container">
+                        <iframe 
+                            src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    
+                    <div class="cards-grid">
+                        <div class="card">
+                            <h4 class="card-titulo">O que é Geografia?</h4>
+                            <p class="card-descricao">Vídeo introdutório sobre os conceitos básicos da Geografia.</p>
+                            <div class="card-meta">
+                                <span>12:30 min</span>
+                                <span><i class="far fa-eye"></i> Assistir</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <!-- Aba Recursos -->
             <section id="recursos" class="aba-conteudo">
                 <h2 class="aba-titulo">
@@ -821,7 +905,7 @@
                 <div class="area-conteudo page-transition">
                     <h3 class="area-titulo">
                         <i class="fas fa-link"></i>
-                        Links e Ferramentas
+                        Links e Ferramentas - 1º Bimestre
                     </h3>
                     <p class="area-descricao">
                         Recursos complementares, sites educativos e ferramentas para estudo.
@@ -848,7 +932,7 @@
                     </div>
                 </div>
             </section>
-        </main>
+        </div>
     </div>
 
     <!-- Footer -->
@@ -906,32 +990,70 @@
             }
         });
 
-        // Sistema de Navegação por Abas
-        document.addEventListener('DOMContentLoaded', function() {
-            const abaLinks = document.querySelectorAll('.aba-link');
-            const abaConteudos = document.querySelectorAll('.aba-conteudo');
-            
-            // Função para ativar aba
-            function ativarAba(abaId) {
-                abaLinks.forEach(link => link.classList.remove('ativa'));
-                abaConteudos.forEach(conteudo => conteudo.classList.remove('ativa'));
-                
-                const abaLink = document.querySelector(`[data-aba="${abaId}"]`);
-                const abaConteudo = document.getElementById(abaId);
-                
-                if (abaLink && abaConteudo) {
-                    abaLink.classList.add('ativa');
-                    abaConteudo.classList.add('ativa');
-                }
+        // Sistema de Bimestres
+        const bimestreCards = document.querySelectorAll('.bimestre-card');
+        const bimestreMensagem = document.getElementById('bimestreMensagem');
+        
+        const mensagensBimestre = {
+            1: {
+                titulo: "1º Bimestre - Introdução à Geografia",
+                descricao: "Conteúdos sobre os fundamentos da Geografia e representações do espaço"
+            },
+            2: {
+                titulo: "2º Bimestre - Geografia Física",
+                descricao: "Estudo dos elementos naturais e dinâmicas do planeta Terra"
+            },
+            3: {
+                titulo: "3º Bimestre - População e Espaço",
+                descricao: "Análise da distribuição populacional e organização do espaço"
+            },
+            4: {
+                titulo: "4º Bimestre - Geografia Humana",
+                descricao: "Relações entre sociedade e espaço geográfico"
             }
+        };
+
+        bimestreCards.forEach(card => {
+            card.addEventListener('click', function() {
+                const bimestre = this.getAttribute('data-bimestre');
+                
+                // Remove classe ativa de todos os cards
+                bimestreCards.forEach(c => c.classList.remove('ativo'));
+                // Adiciona classe ativa ao card clicado
+                this.classList.add('ativo');
+                
+                // Atualiza mensagem do bimestre
+                bimestreMensagem.innerHTML = `
+                    <h3>${mensagensBimestre[bimestre].titulo}</h3>
+                    <p>${mensagensBimestre[bimestre].descricao}</p>
+                `;
+                
+                // Aqui você pode adicionar lógica para carregar conteúdos específicos do bimestre
+                console.log(`Bimestre ${bimestre} selecionado`);
+            });
+        });
+
+        // Sistema de Abas Mobile
+        const abaButtons = document.querySelectorAll('.aba-mobile');
+        const abaConteudos = document.querySelectorAll('.aba-conteudo');
+        
+        function ativarAba(abaId) {
+            abaButtons.forEach(btn => btn.classList.remove('ativa'));
+            abaConteudos.forEach(conteudo => conteudo.classList.remove('ativa'));
             
-            // Event listeners para os links das abas
-            abaLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const abaId = this.getAttribute('data-aba');
-                    ativarAba(abaId);
-                });
+            const abaBtn = document.querySelector(`[data-aba="${abaId}"]`);
+            const abaConteudo = document.getElementById(abaId);
+            
+            if (abaBtn && abaConteudo) {
+                abaBtn.classList.add('ativa');
+                abaConteudo.classList.add('ativa');
+            }
+        }
+        
+        abaButtons.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const abaId = this.getAttribute('data-aba');
+                ativarAba(abaId);
             });
         });
 
