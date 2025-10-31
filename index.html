@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Geografia | Professor Leonardo</title>
+    <title>Espaço digital: Geografia | Professor Leonardo</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
@@ -133,7 +133,7 @@
             color: var(--accent);
         }
 
-        /* Hero Section with Video */
+        /* Hero Section with YouTube Video */
         .hero {
             height: 100vh;
             position: relative;
@@ -143,14 +143,24 @@
             justify-content: center;
         }
 
-        .hero-video {
+        .video-container {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover;
             z-index: 1;
+        }
+
+        .video-container iframe {
+            width: 100vw;
+            height: 56.25vw; /* 16:9 aspect ratio */
+            min-height: 100vh;
+            min-width: 177.77vh; /* 16:9 aspect ratio */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
         }
 
         .hero::after {
@@ -160,7 +170,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(26, 60, 52, 0.8) 0%, rgba(45, 107, 91, 0.6) 100%);
+            background: linear-gradient(135deg, rgba(26, 60, 52, 0.85) 0%, rgba(45, 107, 91, 0.75) 100%);
             z-index: 2;
         }
 
@@ -181,7 +191,7 @@
         }
 
         .hero p {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             margin-bottom: 2rem;
             opacity: 0.9;
             font-weight: 300;
@@ -397,10 +407,15 @@
             margin: 0 0.5rem;
             opacity: 0.8;
             transition: opacity 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.1rem;
         }
 
         .social-link:hover {
             opacity: 1;
+            color: var(--accent);
         }
 
         .footer p {
@@ -415,6 +430,11 @@
             .turmas-grid { grid-template-columns: 1fr; }
             .section-title { font-size: 1.8rem; }
             .nav-container { padding: 0 1rem; }
+            
+            .video-container iframe {
+                width: 100vw;
+                height: 100vh;
+            }
         }
 
         /* Page Transitions */
@@ -448,15 +468,19 @@
         </div>
     </nav>
 
-    <!-- Hero Section with Video -->
+    <!-- Hero Section with YouTube Video -->
     <section class="hero">
-        <video autoplay muted loop playsinline class="hero-video">
-            <source src="https://assets.mixkit.co/videos/preview/mixkit-aerial-view-of-a-forest-stream-18607-large.mp4" type="video/mp4">
-            <!-- Fallback para caso o vídeo não carregue -->
-        </video>
+        <div class="video-container">
+            <iframe 
+                src="https://www.youtube.com/embed/TSPgtwIlCKw?autoplay=1&mute=1&loop=1&playlist=TSPgtwIlCKw&controls=0&showinfo=0&rel=0&modestbranding=1" 
+                frameborder="0" 
+                allow="autoplay; encrypted-media" 
+                allowfullscreen>
+            </iframe>
+        </div>
         <div class="hero-content page-transition">
-            <h1>Geografia para Todos</h1>
-            <p>Conheça nosso espaço de aprendizado colaborativo e descubra o mundo através da geografia</p>
+            <h1>Espaço digital: Geografia</h1>
+            <p>Conteúdo, interação e aprendizado.</p>
             <a href="#turmas" class="cta-button">Ver Turmas</a>
         </div>
     </section>
