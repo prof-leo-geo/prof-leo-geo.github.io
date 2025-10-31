@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7º Ano - Geografia Digital</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --verde-musgo: #556B2F;
+            --verde-floresta: #228B22;
+            --verde-oliva: #6B8E23;
+            --verde-escuro: #2F4F4F;
+            --bege: #F5F5DC;
+            --cinza-claro: #F8F8F8;
+            --branco: #FFFFFF;
+            --preto: #333333;
+            --cor-turma: #228B22;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: var(--branco);
+            color: var(--preto);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header-turma {
+            background: linear-gradient(135deg, var(--cor-turma) 0%, var(--verde-oliva) 100%);
+            color: var(--branco);
+            padding: 40px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-turma::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                linear-gradient(45deg, transparent 90%, rgba(255,255,255,0.1) 90%);
+            background-size: 30px 30px;
+        }
+
+        .breadcrumb {
+            margin-bottom: 1rem;
+        }
+
+        .breadcrumb a {
+            color: var(--branco);
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .breadcrumb a:hover {
+            opacity: 1;
+        }
+
+        .header-content h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .header-content p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Layout Principal */
+        .main-layout {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 0;
+            min-height: 80vh;
+        }
+
+        /* Sidebar de Abas */
+        .sidebar {
+            background: var(--cinza-claro);
+            padding: 40px 0;
+            border-right: 2px solid var(--bege);
+            height: 100%;
+            position: sticky;
+            top: 0;
+        }
+
+        .abas-menu {
+            list-style: none;
+        }
+
+        .aba-item {
+            margin-bottom: 5px;
+        }
+
+        .aba-link {
+            display: flex;
+            align-items: center;
+            padding: 20px 30px;
+            color: var(--preto);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        .aba-link:hover {
+            background: rgba(85, 107, 47, 0.1);
+            border-left-color: var(--cor-turma);
+        }
+
+        .aba-link.ativa {
+            background: var(--branco);
+            border-left-color: var(--cor-turma);
+            color: var(--cor-turma);
+            box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+        }
+
+        .aba-icone {
+            font-size: 1.2rem;
+            margin-right: 15px;
+            width: 25px;
+            text-align: center;
+        }
+
+        /* Conteúdo Principal */
+        .conteudo-principal {
+            padding: 40px;
+            background: var(--branco);
+        }
+
+        .aba-conteudo {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .aba-conteudo.ativa {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .aba-titulo {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2rem;
+            color: var(--cor-turma);
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--bege);
+        }
+
+        /* Área de Conteúdo Editável */
+        .area-conteudo {
+            background: var(--cinza-claro);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-left: 5px solid var(--cor-turma);
+        }
+
+        .area-titulo {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.3rem;
+            color: var(--cor-turma);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .area-titulo i {
+            margin-right: 10px;
+        }
+
+        .area-descricao {
+            color: var(--preto);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        /* Cards de Conteúdo */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .card {
+            background: var(--branco);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border: 1px solid var(--bege);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .card-titulo {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.1rem;
+            color: var(--cor-turma);
+            margin-bottom: 10px;
+        }
+
+        .card-descricao {
+            color: var(--preto);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            color: #666;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid var(--bege);
+        }
+
+        /* Responsividade */
+        @media (max-width: 1024px) {
+            .main-layout {
+                grid-template-columns: 250px 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-layout {
+                grid-template-columns: 1fr;
+            }
+            
+            .sidebar {
+                position: static;
+                border-right: none;
+                border-bottom: 2px solid var(--bege);
+                padding: 20px 0;
+            }
+            
+            .abas-menu {
+                display: flex;
+                overflow-x: auto;
+                padding: 0 20px;
+            }
+            
+            .aba-item {
+                margin-bottom: 0;
+                margin-right: 10px;
+                flex-shrink: 0;
+            }
+            
+            .aba-link {
+                padding: 15px 20px;
+                border-left: none;
+                border-bottom: 3px solid transparent;
+                white-space: nowrap;
+            }
+            
+            .aba-link.ativa {
+                border-left: none;
+                border-bottom: 3px solid var(--cor-turma);
+            }
+            
+            .conteudo-principal {
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-content h1 {
+                font-size: 2rem;
+            }
+            
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .area-conteudo {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header da Turma -->
+    <header class="header-turma">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="index.html">
+                    <i class="fas fa-arrow-left"></i>
+                    Voltar para Página Inicial
+                </a>
+            </div>
+            <div class="header-content">
+                <h1>6º Ano</h1>
+                <p>Explore os materiais e recursos da turma</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Layout Principal -->
+    <div class="container">
+        <div class="main-layout">
+            <!-- Sidebar com Abas -->
+            <nav class="sidebar">
+                <ul class="abas-menu">
+                    <li class="aba-item">
+                        <a class="aba-link ativa" data-aba="videos">
+                            <span class="aba-icone"><i class="fas fa-play-circle"></i></span>
+                            Vídeos
+                        </a>
+                    </li>
+                    <li class="aba-item">
+                        <a class="aba-link" data-aba="aulas">
+                            <span class="aba-icone"><i class="fas fa-book-open"></i></span>
+                            Aulas
+                        </a>
+                    </li>
+                    <li class="aba-item">
+                        <a class="aba-link" data-aba="textos">
+                            <span class="aba-icone"><i class="fas fa-file-alt"></i></span>
+                            Textos
+                        </a>
+                    </li>
+                    <li class="aba-item">
+                        <a class="aba-link" data-aba="atividades">
+                            <span class="aba-icone"><i class="fas fa-tasks"></i></span>
+                            Atividades
+                        </a>
+                    </li>
+                    <li class="aba-item">
+                        <a class="aba-link" data-aba="recursos">
+                            <span class="aba-icone"><i class="fas fa-globe-americas"></i></span>
+                            Recursos
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Conteúdo Principal -->
+            <main class="conteudo-principal">
+                <!-- Aba Vídeos -->
+                <section id="videos" class="aba-conteudo ativa">
+                    <h2 class="aba-titulo">
+                        <i class="fas fa-play-circle"></i>
+                        Vídeos da Turma
+                    </h2>
+                    
+                    <div class="area-conteudo">
+                        <h3 class="area-titulo">
+                            <i class="fas fa-video"></i>
+                            Espaço para Inserir Vídeos
+                        </h3>
+                        <p class="area-descricao">
+                            Aqui você pode adicionar vídeos incorporados do YouTube, Vimeo ou outras plataformas.
+                        </p>
+                        
+                        <!-- Exemplo de cards de vídeos -->
+                        <div class="cards-grid">
+                            <div class="card">
+                                <h4 class="card-titulo">Introdução à Geografia</h4>
+                                <p class="card-descricao">Vídeo introdutório sobre os conceitos básicos da geografia.</p>
+                                <div class="card-meta">
+                                    <span>15:30 min</span>
+                                    <span><i class="far fa-eye"></i> Assistir</span>
+                                </div>
+                            </div>
+                            
+                            <div class="card">
+                                <h4 class="card-titulo">Coordenadas Geográficas</h4>
+                                <p class="card-descricao">Aprenda sobre latitude, longitude e fusos horários.</p>
+                                <div class="card-meta">
+                                    <span>22:45 min</span>
+                                    <span><i class="far fa-eye"></i> Assistir</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Aba Aulas -->
+                <section id="aulas" class="aba-conteudo">
+                    <h2 class="aba-titulo">
+                        <i class="fas fa-book-open"></i>
+                        Materiais de Aula
+                    </h2>
+                    
+                    <div class="area-conteudo">
+                        <h3 class="area-titulo">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                            Conteúdo das Aulas
+                        </h3>
+                        <p class="area-descricao">
+                            Adicione aqui suas apresentações, PDFs, slides e outros materiais de aula.
+                        </p>
+                    </div>
+                </section>
+
+                <!-- Aba Textos -->
+                <section id="textos" class="aba-conteudo">
+                    <h2 class="aba-titulo">
+                        <i class="fas fa-file-alt"></i>
+                        Textos e Artigos
+                    </h2>
+                    
+                    <div class="area-conteudo">
+                        <h3 class="area-titulo">
+                            <i class="fas fa-book"></i>
+                            Leitura Complementar
+                        </h3>
+                        <p class="area-descricao">
+                            Espaço para textos, artigos científicos, notícias e materiais de leitura complementar.
+                        </p>
+                    </div>
+                </section>
+
+                <!-- Aba Atividades -->
+                <section id="atividades" class="aba-conteudo">
+                    <h2 class="aba-titulo">
+                        <i class="fas fa-tasks"></i>
+                        Atividades e Exercícios
+                    </h2>
+                    
+                    <div class="area-conteudo">
+                        <h3 class="area-titulo">
+                            <i class="fas fa-edit"></i>
+                            Exercícios Práticos
+                        </h3>
+                        <p class="area-descricao">
+                            Inclua aqui atividades, questionários, trabalhos e exercícios para os alunos.
+                        </p>
+                    </div>
+                </section>
+
+                <!-- Aba Recursos -->
+                <section id="recursos" class="aba-conteudo">
+                    <h2 class="aba-titulo">
+                        <i class="fas fa-globe-americas"></i>
+                        Recursos Extras
+                    </h2>
+                    
+                    <div class="area-conteudo">
+                        <h3 class="area-titulo">
+                            <i class="fas fa-link"></i>
+                            Links e Ferramentas
+                        </h3>
+                        <p class="area-descricao">
+                            Compartilhe links úteis, mapas interativos, ferramentas online e outros recursos complementares.
+                        </p>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <script>
+        // Sistema de Navegação por Abas
+        document.addEventListener('DOMContentLoaded', function() {
+            const abaLinks = document.querySelectorAll('.aba-link');
+            const abaConteudos = document.querySelectorAll('.aba-conteudo');
+            
+            // Função para ativar aba
+            function ativarAba(abaId) {
+                abaLinks.forEach(link => link.classList.remove('ativa'));
+                abaConteudos.forEach(conteudo => conteudo.classList.remove('ativa'));
+                
+                const abaLink = document.querySelector(`[data-aba="${abaId}"]`);
+                const abaConteudo = document.getElementById(abaId);
+                
+                if (abaLink && abaConteudo) {
+                    abaLink.classList.add('ativa');
+                    abaConteudo.classList.add('ativa');
+                }
+            }
+            
+            // Event listeners para os links das abas
+            abaLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const abaId = this.getAttribute('data-aba');
+                    ativarAba(abaId);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
