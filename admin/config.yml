@@ -1,14 +1,10 @@
 backend:
   name: git-gateway
   branch: main
-  commit_messages:
-    create: 'Criar {{collection}} "{{slug}}"'
-    update: 'Atualizar {{collection}} "{{slug}}"'
-    delete: 'Excluir {{collection}} "{{slug}}"'
-    uploadMedia: 'Fazer upload "[{{path}}]({{path}})"'
-    deleteMedia: 'Excluir "[{{path}}]({{path}})"'
 
+# ADICIONE ESTAS LINHAS:
 local_backend: true
+site_url: https://prof-leo-geo.netlify.app
 
 media_folder: "static/img"
 public_folder: "/img"
@@ -18,20 +14,9 @@ collections:
     label: "Avisos do Professor"
     folder: "content/avisos"
     create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    fields:
-      - {label: "Título", name: "title", widget: "string"}
-      - {label: "Data", name: "date", widget: "datetime", format: "YYYY-MM-DD"}
-      - {label: "Conteúdo", name: "body", widget: "markdown"}
-      - {label: "Urgente", name: "urgente", widget: "boolean", default: false, required: false}
-
-  - name: "aulas"
-    label: "Materiais de Aula"
-    folder: "content/aulas"
-    create: true
     slug: "{{slug}}"
     fields:
       - {label: "Título", name: "title", widget: "string"}
-      - {label: "Descrição", name: "descricao", widget: "text"}
-      - {label: "Arquivo", name: "arquivo", widget: "file", required: false}
-      - {label: "Turma", name: "turma", widget: "select", options: ["6º Ano", "7º Ano", "8º Ano", "9º Ano"]}
+      - {label: "Data", name: "date", widget: "datetime"}
+      - {label: "Conteúdo", name: "body", widget: "markdown"}
+      - {label: "Urgente", name: "urgente", widget: "boolean", required: false}
