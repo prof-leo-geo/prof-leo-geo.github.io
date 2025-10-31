@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geografia Digital</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --verde-musgo: #556B2F;
+            --verde-floresta: #228B22;
+            --verde-oliva: #6B8E23;
+            --verde-escuro: #2F4F4F;
+            --bege: #F5F5DC;
+            --cinza-claro: #F8F8F8;
+            --branco: #FFFFFF;
+            --preto: #333333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: var(--branco);
+            color: var(--preto);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--verde-musgo) 0%, var(--verde-oliva) 100%);
+            color: var(--branco);
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                linear-gradient(90deg, transparent 95%, rgba(255,255,255,0.1) 95%),
+                linear-gradient(0deg, transparent 95%, rgba(255,255,255,0.1) 95%);
+            background-size: 50px 50px;
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            font-weight: 300;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Apresentação Section */
+        .apresentacao {
+            padding: 60px 0;
+            background: var(--cinza-claro);
+        }
+
+        .apresentacao-card {
+            background: var(--bege);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            position: relative;
+            border-left: 5px solid var(--verde-musgo);
+        }
+
+        .apresentacao-card::before {
+            content: '🌎';
+            position: absolute;
+            top: -20px;
+            left: 30px;
+            font-size: 2rem;
+            background: var(--bege);
+            padding: 0 10px;
+        }
+
+        .apresentacao h2 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--verde-musgo);
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .apresentacao-texto {
+            font-size: 1.1rem;
+            color: var(--preto);
+            text-align: center;
+            line-height: 1.8;
+        }
+
+        /* Grade de Turmas */
+        .turmas {
+            padding: 80px 0;
+            background: var(--branco);
+        }
+
+        .turmas h2 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--verde-musgo);
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .grade-turmas {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .turma-card {
+            background: var(--branco);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            text-decoration: none;
+            color: var(--preto);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid transparent;
+            display: block;
+        }
+
+        .turma-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: var(--card-color);
+        }
+
+        .turma-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+            border-color: var(--card-color);
+            text-decoration: none;
+            color: var(--preto);
+        }
+
+        .numero-ano {
+            font-family: 'Poppins', sans-serif;
+            font-size: 4rem;
+            font-weight: 700;
+            color: var(--card-color);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .turma-titulo {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--preto);
+        }
+
+        .turma-icone {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .btn-turma {
+            display: inline-block;
+            background: var(--card-color);
+            color: var(--branco);
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 2px solid var(--card-color);
+        }
+
+        .turma-card:hover .btn-turma {
+            background: transparent;
+            color: var(--card-color);
+        }
+
+        /* Cores específicas para cada turma */
+        .turma-6 { --card-color: var(--verde-musgo); }
+        .turma-7 { --card-color: var(--verde-floresta); }
+        .turma-8 { --card-color: var(--verde-oliva); }
+        .turma-9 { --card-color: var(--verde-escuro); }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .hero p { font-size: 1.1rem; }
+            .grade-turmas { grid-template-columns: 1fr; max-width: 400px; }
+            .numero-ano { font-size: 3rem; }
+            .apresentacao-card { padding: 30px 20px; }
+        }
+
+        @media (max-width: 480px) {
+            .hero { padding: 60px 0; }
+            .hero h1 { font-size: 2rem; }
+            .turmas { padding: 50px 0; }
+            .turmas h2 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Geografia Digital</h1>
+                <p>Descobrindo o mundo camada por camada</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Apresentação -->
+    <section class="apresentacao">
+        <div class="container">
+            <div class="apresentacao-card">
+                <h2>Bem-vindo ao Nosso Espaço Geográfico</h2>
+                <div class="apresentacao-texto">
+                    Explore nosso portal interativo de Geografia! Aqui cada turma tem seu espaço dedicado com materiais exclusivos, vídeos, aulas dinâmicas e atividades que transformam o aprendizado em uma verdadeira expedição pelo conhecimento geográfico.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Grade de Turmas -->
+    <section class="turmas">
+        <div class="container">
+            <h2>Nossas Turmas</h2>
+            <div class="grade-turmas">
+                <!-- 6º Ano -->
+                <a href="6-ano.html" class="turma-card turma-6">
+                    <span class="turma-icone">🗺️</span>
+                    <span class="numero-ano">6</span>
+                    <h3 class="turma-titulo">6º Ano</h3>
+                    <span class="btn-turma">Acessar Turma</span>
+                </a>
+
+                <!-- 7º Ano -->
+                <a href="7-ano.html" class="turma-card turma-7">
+                    <span class="turma-icone">🌍</span>
+                    <span class="numero-ano">7</span>
+                    <h3 class="turma-titulo">7º Ano</h3>
+                    <span class="btn-turma">Acessar Turma</span>
+                </a>
+
+                <!-- 8º Ano -->
+                <a href="8-ano.html" class="turma-card turma-8">
+                    <span class="turma-icone">🌋</span>
+                    <span class="numero-ano">8</span>
+                    <h3 class="turma-titulo">8º Ano</h3>
+                    <span class="btn-turma">Acessar Turma</span>
+                </a>
+
+                <!-- 9º Ano -->
+                <a href="9-ano.html" class="turma-card turma-9">
+                    <span class="turma-icone">🏙️</span>
+                    <span class="numero-ano">9</span>
+                    <h3 class="turma-titulo">9º Ano</h3>
+                    <span class="btn-turma">Acessar Turma</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Animação suave de entrada para os cards
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.turma-card');
+            
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                
+                setTimeout(() => {
+                    card.style.transition = 'all 0.6s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 200 * index);
+            });
+        });
+    </script>
+</body>
+</html>
