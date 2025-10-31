@@ -16,3 +16,14 @@ collections:
       - {label: "Data", name: "date", widget: "datetime"}
       - {label: "Conteúdo", name: "body", widget: "markdown"}
       - {label: "Urgente", name: "urgente", widget: "boolean", required: false}
+
+  - name: "aulas"
+    label: "Materiais de Aula"
+    folder: "content/aulas"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Título", name: "title", widget: "string"}
+      - {label: "Descrição", name: "descricao", widget: "text"}
+      - {label: "Arquivo PDF", name: "arquivo", widget: "file"}
+      - {label: "Turma", name: "turma", widget: "select", options: ["6º Ano", "7º Ano", "8º Ano", "9º Ano"]}
