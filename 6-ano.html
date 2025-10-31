@@ -195,94 +195,6 @@
             margin: 0 auto;
         }
 
-        /* Bimestres */
-        .bimestres-section {
-            background: var(--light);
-            padding: 2rem 1rem;
-            border-bottom: 1px solid rgba(0,0,0,0.1);
-        }
-
-        body.dark-mode .bimestres-section {
-            background: var(--bg-dark);
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .bimestres-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .bimestres-title {
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-            text-align: center;
-        }
-
-        body.dark-mode .bimestres-title {
-            color: var(--light);
-        }
-
-        .bimestres-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .bimestre-card {
-            background: white;
-            border-radius: 10px;
-            padding: 1.5rem;
-            text-align: center;
-            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-            cursor: pointer;
-        }
-
-        body.dark-mode .bimestre-card {
-            background: var(--card-dark);
-        }
-
-        .bimestre-card:hover, .bimestre-card.ativo {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-            border-color: var(--accent);
-        }
-
-        .bimestre-card.ativo {
-            background: rgba(76, 175, 135, 0.1);
-        }
-
-        .bimestre-icon {
-            font-size: 2rem;
-            margin-bottom: 0.8rem;
-            display: block;
-        }
-
-        .bimestre-titulo {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-
-        body.dark-mode .bimestre-titulo {
-            color: var(--light);
-        }
-
-        .bimestre-periodo {
-            font-size: 0.85rem;
-            color: var(--text-light);
-        }
-
-        body.dark-mode .bimestre-periodo {
-            color: #a0aec0;
-        }
-
         /* Layout Principal Mobile First */
         .main-content {
             max-width: 1200px;
@@ -322,7 +234,7 @@
         }
 
         .aba-mobile {
-            padding: 1rem 1.5rem;
+            padding: 1rem 1.2rem;
             background: none;
             border: none;
             color: var(--text-light);
@@ -332,6 +244,10 @@
             white-space: nowrap;
             border-bottom: 3px solid transparent;
             flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
         }
 
         body.dark-mode .aba-mobile {
@@ -350,7 +266,7 @@
 
         .aba-conteudo {
             display: none;
-            padding: 2rem;
+            padding: 1.5rem;
             animation: fadeIn 0.5s ease;
         }
 
@@ -557,23 +473,73 @@
             color: #a0aec0;
         }
 
-        /* Mensagem do Bimestre */
-        .bimestre-mensagem {
-            text-align: center;
-            padding: 2rem;
-            background: rgba(76, 175, 135, 0.1);
+        /* Avisos do Professor */
+        .aviso-item {
+            background: linear-gradient(135deg, #fff8e1 0%, #ffecb3 100%);
             border-radius: 10px;
-            margin-bottom: 2rem;
-            border: 1px solid var(--accent);
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border-left: 4px solid #ff9800;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
         }
 
-        .bimestre-mensagem h3 {
-            color: var(--primary);
+        body.dark-mode .aviso-item {
+            background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
+            border-left: 4px solid #f6ad55;
+        }
+
+        .aviso-titulo {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #d84315;
             margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
-        body.dark-mode .bimestre-mensagem h3 {
-            color: var(--accent);
+        body.dark-mode .aviso-titulo {
+            color: #f6ad55;
+        }
+
+        .aviso-data {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        body.dark-mode .aviso-data {
+            color: #a0aec0;
+        }
+
+        .aviso-conteudo {
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        body.dark-mode .aviso-conteudo {
+            color: var(--light);
+        }
+
+        .aviso-urgente {
+            background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
+            border-left: 4px solid #f44336;
+        }
+
+        body.dark-mode .aviso-urgente {
+            background: linear-gradient(135deg, #742a2a 0%, #9b2c2c 100%);
+            border-left: 4px solid #fc8181;
+        }
+
+        .aviso-urgente .aviso-titulo {
+            color: #c62828;
+        }
+
+        body.dark-mode .aviso-urgente .aviso-titulo {
+            color: #fc8181;
         }
 
         /* Footer */
@@ -608,10 +574,6 @@
                 font-size: 3rem;
             }
             
-            .bimestres-section {
-                padding: 3rem 2rem;
-            }
-            
             .main-content {
                 padding: 3rem 2rem;
             }
@@ -622,6 +584,11 @@
             
             .aba-mobile {
                 padding: 1.2rem 2rem;
+                font-size: 1rem;
+            }
+            
+            .aba-conteudo {
+                padding: 2rem;
             }
             
             .aba-titulo {
@@ -632,6 +599,10 @@
             .cards-grid {
                 grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
                 gap: 1.5rem;
+            }
+
+            .aviso-item {
+                padding: 2rem;
             }
         }
 
@@ -680,47 +651,16 @@
         </div>
     </header>
 
-    <!-- Seção de Bimestres -->
-    <section class="bimestres-section">
-        <div class="bimestres-container">
-            <h2 class="bimestres-title">Selecione o Bimestre</h2>
-            <div class="bimestres-grid">
-                <div class="bimestre-card ativo" data-bimestre="1">
-                    <span class="bimestre-icon">❶</span>
-                    <h3 class="bimestre-titulo">1º Bimestre</h3>
-                    <p class="bimestre-periodo">Fev - Abr</p>
-                </div>
-                <div class="bimestre-card" data-bimestre="2">
-                    <span class="bimestre-icon">❷</span>
-                    <h3 class="bimestre-titulo">2º Bimestre</h3>
-                    <p class="bimestre-periodo">Mai - Jul</p>
-                </div>
-                <div class="bimestre-card" data-bimestre="3">
-                    <span class="bimestre-icon">❸</span>
-                    <h3 class="bimestre-titulo">3º Bimestre</h3>
-                    <p class="bimestre-periodo">Ago - Out</p>
-                </div>
-                <div class="bimestre-card" data-bimestre="4">
-                    <span class="bimestre-icon">❹</span>
-                    <h3 class="bimestre-titulo">4º Bimestre</h3>
-                    <p class="bimestre-periodo">Nov - Dez</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Conteúdo Principal -->
     <div class="main-content">
-        <!-- Mensagem do Bimestre -->
-        <div class="bimestre-mensagem" id="bimestreMensagem">
-            <h3>1º Bimestre - Introdução à Geografia</h3>
-            <p>Conteúdos sobre os fundamentos da Geografia e representações do espaço</p>
-        </div>
-
         <!-- Abas Mobile -->
         <div class="abas-container">
             <div class="abas-header">
-                <button class="aba-mobile ativa" data-aba="aulas">
+                <button class="aba-mobile ativa" data-aba="avisos">
+                    <i class="fas fa-bullhorn"></i>
+                    <span>Avisos</span>
+                </button>
+                <button class="aba-mobile" data-aba="aulas">
                     <i class="fas fa-book-open"></i>
                     <span>Aulas</span>
                 </button>
@@ -742,8 +682,76 @@
                 </button>
             </div>
 
+            <!-- Aba Avisos -->
+            <section id="avisos" class="aba-conteudo ativa">
+                <h2 class="aba-titulo">
+                    <i class="fas fa-bullhorn"></i>
+                    Avisos do Professor
+                </h2>
+                
+                <div class="aviso-item aviso-urgente">
+                    <h3 class="aviso-titulo">
+                        <i class="fas fa-exclamation-circle"></i>
+                        AVISO IMPORTANTE
+                    </h3>
+                    <div class="aviso-data">
+                        <i class="far fa-calendar"></i>
+                        Postado em: 15/11/2024
+                    </div>
+                    <div class="aviso-conteudo">
+                        <p><strong>Entrega do Trabalho:</strong> Lembrando que o trabalho em grupo sobre "Representações Cartográficas" deve ser entregue até sexta-feira, 22/11.</p>
+                        <p style="margin-top: 0.5rem;">Formato: PDF ou apresentação digital.</p>
+                    </div>
+                </div>
+
+                <div class="aviso-item">
+                    <h3 class="aviso-titulo">
+                        <i class="fas fa-info-circle"></i>
+                        Prova Bimestral
+                    </h3>
+                    <div class="aviso-data">
+                        <i class="far fa-calendar"></i>
+                        Postado em: 10/11/2024
+                    </div>
+                    <div class="aviso-conteudo">
+                        <p>A prova do 4º bimestre será no dia <strong>30/11/2024</strong>.</p>
+                        <p style="margin-top: 0.5rem;"><strong>Conteúdo:</strong> Introdução à Geografia, Representações do Espaço, Orientação e Localização.</p>
+                    </div>
+                </div>
+
+                <div class="aviso-item">
+                    <h3 class="aviso-titulo">
+                        <i class="fas fa-trophy"></i>
+                        Olimpíada de Geografia
+                    </h3>
+                    <div class="aviso-data">
+                        <i class="far fa-calendar"></i>
+                        Postado em: 05/11/2024
+                    </div>
+                    <div class="aviso-conteudo">
+                        <p>Inscrições abertas para a Olimpíada Brasileira de Geografia! Interessados devem se inscrever até 25/11.</p>
+                        <p style="margin-top: 0.5rem;">Mais informações: www.obgeografia.com.br</p>
+                    </div>
+                </div>
+
+                <div class="aviso-item">
+                    <h3 class="aviso-titulo">
+                        <i class="fas fa-video"></i>
+                        Novo Material Disponível
+                    </h3>
+                    <div class="aviso-data">
+                        <i class="far fa-calendar"></i>
+                        Postado em: 01/11/2024
+                    </div>
+                    <div class="aviso-conteudo">
+                        <p>Acabei de adicionar novos vídeos sobre "Coordenadas Geográficas" na aba de Vídeos. Confiram!</p>
+                        <p style="margin-top: 0.5rem;">São materiais complementares muito interessantes para o estudo.</p>
+                    </div>
+                </div>
+            </section>
+
             <!-- Aba Aulas -->
-            <section id="aulas" class="aba-conteudo ativa">
+            <section id="aulas" class="aba-conteudo">
                 <h2 class="aba-titulo">
                     <i class="fas fa-book-open"></i>
                     Materiais de Aula
@@ -752,7 +760,7 @@
                 <div class="area-conteudo page-transition">
                     <h3 class="area-titulo">
                         <i class="fas fa-chalkboard-teacher"></i>
-                        Conteúdo das Aulas - 1º Bimestre
+                        Conteúdo das Aulas
                     </h3>
                     <p class="area-descricao">
                         Apresentações, resumos e materiais utilizados em sala de aula.
@@ -794,7 +802,7 @@
                 <div class="area-conteudo page-transition">
                     <h3 class="area-titulo">
                         <i class="fas fa-book"></i>
-                        Leitura Complementar - 1º Bimestre
+                        Leitura Complementar
                     </h3>
                     <p class="area-descricao">
                         Textos, artigos e materiais de leitura para aprofundamento do conteúdo.
@@ -832,7 +840,7 @@
                 <div class="area-conteudo page-transition">
                     <h3 class="area-titulo">
                         <i class="fas fa-edit"></i>
-                        Exercícios Práticos - 1º Bimestre
+                        Exercícios Práticos
                     </h3>
                     <p class="area-descricao">
                         Atividades, questionários e exercícios para fixação do conteúdo.
@@ -867,7 +875,7 @@
                 <div class="area-conteudo page-transition">
                     <h3 class="area-titulo">
                         <i class="fas fa-video"></i>
-                        Conteúdo em Vídeo - 1º Bimestre
+                        Conteúdo em Vídeo
                     </h3>
                     <p class="area-descricao">
                         Seleção de vídeos para complementar o aprendizado sobre introdução à Geografia.
@@ -905,7 +913,7 @@
                 <div class="area-conteudo page-transition">
                     <h3 class="area-titulo">
                         <i class="fas fa-link"></i>
-                        Links e Ferramentas - 1º Bimestre
+                        Links e Ferramentas
                     </h3>
                     <p class="area-descricao">
                         Recursos complementares, sites educativos e ferramentas para estudo.
@@ -988,49 +996,6 @@
                     ? 'rgba(10, 21, 18, 0.95)'
                     : 'rgba(248, 249, 250, 0.95)';
             }
-        });
-
-        // Sistema de Bimestres
-        const bimestreCards = document.querySelectorAll('.bimestre-card');
-        const bimestreMensagem = document.getElementById('bimestreMensagem');
-        
-        const mensagensBimestre = {
-            1: {
-                titulo: "1º Bimestre - Introdução à Geografia",
-                descricao: "Conteúdos sobre os fundamentos da Geografia e representações do espaço"
-            },
-            2: {
-                titulo: "2º Bimestre - Geografia Física",
-                descricao: "Estudo dos elementos naturais e dinâmicas do planeta Terra"
-            },
-            3: {
-                titulo: "3º Bimestre - População e Espaço",
-                descricao: "Análise da distribuição populacional e organização do espaço"
-            },
-            4: {
-                titulo: "4º Bimestre - Geografia Humana",
-                descricao: "Relações entre sociedade e espaço geográfico"
-            }
-        };
-
-        bimestreCards.forEach(card => {
-            card.addEventListener('click', function() {
-                const bimestre = this.getAttribute('data-bimestre');
-                
-                // Remove classe ativa de todos os cards
-                bimestreCards.forEach(c => c.classList.remove('ativo'));
-                // Adiciona classe ativa ao card clicado
-                this.classList.add('ativo');
-                
-                // Atualiza mensagem do bimestre
-                bimestreMensagem.innerHTML = `
-                    <h3>${mensagensBimestre[bimestre].titulo}</h3>
-                    <p>${mensagensBimestre[bimestre].descricao}</p>
-                `;
-                
-                // Aqui você pode adicionar lógica para carregar conteúdos específicos do bimestre
-                console.log(`Bimestre ${bimestre} selecionado`);
-            });
         });
 
         // Sistema de Abas Mobile
